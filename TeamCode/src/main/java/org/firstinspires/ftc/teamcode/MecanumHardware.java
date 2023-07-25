@@ -19,12 +19,13 @@ public class MecanumHardware {
 
     public MecanumHardware(LinearOpMode opmode) {
         myOpMode = opmode;
+        init();
     }
 
     public void init() {
         leftFrontDrive = myOpMode.hardwareMap.get(DcMotor.class, "left_front_drive");
         rightFrontDrive = myOpMode.hardwareMap.get(DcMotor.class, "right_front_drive");
-        leftBackDrive  = myOpMode.hardwareMap.get(DcMotor.class, "left_back_drive");
+        leftBackDrive = myOpMode.hardwareMap.get(DcMotor.class, "left_back_drive");
         rightBackDrive = myOpMode.hardwareMap.get(DcMotor.class, "right_back_drive");
         rightFrontDrive.setDirection(DcMotor.Direction.REVERSE);
         rightBackDrive.setDirection(DcMotor.Direction.REVERSE);
@@ -32,7 +33,7 @@ public class MecanumHardware {
         drivetrain = new MecanumDrivetrain(rightFrontDrive, leftFrontDrive, rightBackDrive, leftBackDrive);
     }
 
-    public void drivetrainControl(double forwardPower, double strafePower, double turnPower) {
+    public void  drivetrainControl(double forwardPower, double strafePower, double turnPower) {
         drivetrain.drive(forwardPower, strafePower, turnPower);
 
     }
