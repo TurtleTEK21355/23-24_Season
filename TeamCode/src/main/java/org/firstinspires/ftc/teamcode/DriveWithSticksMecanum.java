@@ -13,7 +13,7 @@ public class DriveWithSticksMecanum extends LinearOpMode {
         robot.init();
         waitForStart();
         while (opModeIsActive()) {
-            robot.mecanumDrive(-gamepad1.left_stick_y, gamepad1.left_stick_x, -gamepad1.right_stick_x);
+            robot.mecanumDrive(-gamepad1.left_stick_x, gamepad1.right_stick_y, gamepad1.right_stick_x);
         }
     }
 }
