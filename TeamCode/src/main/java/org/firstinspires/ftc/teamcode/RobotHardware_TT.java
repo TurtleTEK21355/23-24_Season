@@ -262,11 +262,11 @@ public class RobotHardware_TT {
         //rightDrive.setPower(-rightWheel);
     }*/
     }
-    public void mecanumDrive (double y, double x, double rx){
+    public void mecanumDrive (double x, double y, double rx){
         leftFrontDrive.setPower(y + x + rx);
-        rightFrontDrive.setPower(y - x + rx);
-        leftBackDrive.setPower(y - x - rx);
-        rightBackDrive.setPower(y + x - rx);
+        rightFrontDrive.setPower(y + x - rx);
+        leftBackDrive.setPower(y - x + rx);
+        rightBackDrive.setPower(y - x - rx);
     }
 }
 /*
