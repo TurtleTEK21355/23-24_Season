@@ -3,7 +3,6 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp(name="MecanumTest", group="Turtle Group")
 public class DriveWithSticksMecanum extends LinearOpMode {
@@ -13,7 +12,34 @@ public class DriveWithSticksMecanum extends LinearOpMode {
         robot.init();
         waitForStart();
         while (opModeIsActive()) {
-            robot.mecanumDrive(-gamepad1.left_stick_x, -gamepad1.right_stick_x, gamepad1.left_stick_y);
+
+            double Strafe = 0;
+            double Turn = 0;
+            double Drive = 0;
+
+        }
+    }
+            
+
+            if (-gamepad1.left_stick_x < 0) {
+                Strafe = -Math.pow(-gamepad1.left_stick_x, 2);
+            } else {
+                Strafe = Math.pow(-gamepad1.left_stick_x, 2);
+            }
+
+            if (-gamepad1.right_stick_x < 0) {
+                Turn = -Math.pow(-gamepad1.right_stick_x, 2);
+            } else {
+                Turn = Math.pow(-gamepad1.right_stick_x, 2);
+            }
+
+            if (gamepad1.left_stick_y < 0) {
+                Drive = -Math.pow(gamepad1.left_stick_y, 2);
+            } else {
+                Drive = Math.pow(gamepad1.left_stick_y, 2);
+            }
+
+            robot.mecanumDrive(Strafe * 0.5, Turn * 0.5, Drive * 0.5);
         }
     }
 }
