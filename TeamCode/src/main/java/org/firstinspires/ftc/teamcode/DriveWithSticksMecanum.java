@@ -16,9 +16,8 @@ public class DriveWithSticksMecanum extends LinearOpMode {
             double Strafe = 0;
             double Turn = 0;
             double Drive = 0;
+            boolean ToggleSpeed = false;
 
-        }
-    }
             
 
             if (-gamepad1.left_stick_x < 0) {
@@ -39,7 +38,20 @@ public class DriveWithSticksMecanum extends LinearOpMode {
                 Drive = Math.pow(gamepad1.left_stick_y, 2);
             }
 
-            robot.mecanumDrive(Strafe * 0.5, Turn * 0.5, Drive * 0.5);
+            if (gamepad1.y) {
+                ToggleSpeed = true;
+            }
+            else (gamepad1.a) {
+                ToggleSpeed = false;
+            }
+
+
+            if (ToggleSpeed = true) {
+                robot.mecanumDrive(Strafe * 0.6, Turn * 0.6, Drive * 0.6);
+            }
+                else {
+                robot.mecanumDrive(Strafe * 0, Turn * 0, Drive * 0);
+            }
         }
     }
 }
